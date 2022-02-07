@@ -9,6 +9,7 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     @IBOutlet weak var customErrorMessage: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var userNameTextfield: CustomTextField!
     @IBOutlet weak var confirmPasswordTextfield: CustomTextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -73,6 +74,24 @@ class RegistrationViewController: UIViewController {
         confirmPasswordTextfield.errorString = nil
     }
     
+    private func performAPICall() {
+        LoadingView.show()
+        let request = SignUpRequestModel(username: userNameTextfield.textField.text!, password: passwordTextField.textField.text!)
+        viewModel.signup(request) { [weak self] (responseModel) in
+            guard let self = self else { return }
+            LoadingView.hide()
+            DispatchQueue.main.async {
+                if responseModel?.status == StatusReponse.success {
+                    self.customErrorMessage.isHidden = true
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.customErrorMessage.isHidden = false
+                    self.errorLabel.text = responseModel?.error
+                }
+            }
+        }
+    }
+    
     @IBAction func backButtonAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
@@ -80,10 +99,12 @@ class RegistrationViewController: UIViewController {
     @IBAction func registrationButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         clearErrorMessage()
+        self.customErrorMessage.isHidden = true
         let signupModel = SignUpModel.init(username: userNameTextfield.textField.text, password: passwordTextField.textField.text, confirmPassword: confirmPasswordTextfield.textField.text)
-        viewModel.validateInput(signupModel) { (success, errorMessage) in
+        viewModel.validateInput(signupModel) { [weak self] (success, errorMessage) in
+            guard let self = self else { return }
             if success {
-                //self.performAPICall()
+                self.performAPICall()
             } else {
                 switch errorMessage {
                 case Constants.usernameEmptyMessage:

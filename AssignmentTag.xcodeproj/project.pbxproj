@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92F59CAC27B17D84008E06A6 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAB27B17D84008E06A6 /* TransferViewController.swift */; };
+		92F59CAE27B18280008E06A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */; };
+		92F59CB027B18885008E06A6 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAF27B18885008E06A6 /* TransferViewModel.swift */; };
 		92F9043F27AEB43A00FEA979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9043E27AEB43A00FEA979 /* AppDelegate.swift */; };
 		92F9044127AEB43A00FEA979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9044027AEB43A00FEA979 /* SceneDelegate.swift */; };
 		92F9044627AEB43A00FEA979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F9044427AEB43A00FEA979 /* Main.storyboard */; };
@@ -24,6 +27,16 @@
 		92F9048927AFC1A900FEA979 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048827AFC1A900FEA979 /* Constants.swift */; };
 		92F9048C27B00E0600FEA979 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */; };
 		92F9049027B0D2F800FEA979 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */; };
+		92F9049227B0E6CF00FEA979 /* Envirnment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9049127B0E6CF00FEA979 /* Envirnment.swift */; };
+		92F9049827B1000100FEA979 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9049727B1000100FEA979 /* APIManager.swift */; };
+		92F9049B27B1008800FEA979 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9049A27B1008800FEA979 /* NetworkManager.swift */; };
+		92F9049E27B100E300FEA979 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9049D27B100E300FEA979 /* EndPoints.swift */; };
+		92F904A127B1012A00FEA979 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904A027B1012A00FEA979 /* APIResponse.swift */; };
+		92F904A427B1015A00FEA979 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904A327B1015A00FEA979 /* HTTPTask.swift */; };
+		92F904A627B1017E00FEA979 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904A527B1017E00FEA979 /* HTTPMethod.swift */; };
+		92F904A827B101B100FEA979 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904A727B101B100FEA979 /* EndPointType.swift */; };
+		92F904AA27B1021200FEA979 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904A927B1021200FEA979 /* ErrorViewModel.swift */; };
+		92F904AC27B1025400FEA979 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F904AB27B1025400FEA979 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92F59CAB27B17D84008E06A6 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		92F59CAF27B18885008E06A6 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		92F9043B27AEB43A00FEA979 /* AssignmentTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F9043E27AEB43A00FEA979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92F9044027AEB43A00FEA979 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +81,16 @@
 		92F9048827AFC1A900FEA979 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		92F9049127B0E6CF00FEA979 /* Envirnment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Envirnment.swift; sourceTree = "<group>"; };
+		92F9049727B1000100FEA979 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		92F9049A27B1008800FEA979 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		92F9049D27B100E300FEA979 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		92F904A027B1012A00FEA979 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		92F904A327B1015A00FEA979 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		92F904A527B1017E00FEA979 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		92F904A727B101B100FEA979 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		92F904A927B1021200FEA979 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
+		92F904AB27B1025400FEA979 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92F59CAA27B17D57008E06A6 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				92F59CAB27B17D84008E06A6 /* TransferViewController.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
 		92F9043227AEB43A00FEA979 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +152,7 @@
 				92F9043E27AEB43A00FEA979 /* AppDelegate.swift */,
 				92F9044027AEB43A00FEA979 /* SceneDelegate.swift */,
 				92F9044427AEB43A00FEA979 /* Main.storyboard */,
+				92F9049427B0F5E700FEA979 /* network */,
 				92F9047927AFB36200FEA979 /* ViewModels */,
 				92F9047127AEBAB800FEA979 /* Utility */,
 				92F9046E27AEB72900FEA979 /* Controllers */,
@@ -148,6 +183,7 @@
 		92F9046E27AEB72900FEA979 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				92F59CAA27B17D57008E06A6 /* Transfer */,
 				92F9048A27B00DDF00FEA979 /* Registration */,
 				92F9047227AEBB6B00FEA979 /* Login */,
 			);
@@ -186,6 +222,8 @@
 				92F9047527AEBC0E00FEA979 /* UIButtonExtention.swift */,
 				92F9047727AEBD7200FEA979 /* LoadingView.swift */,
 				92F9048827AFC1A900FEA979 /* Constants.swift */,
+				92F9049127B0E6CF00FEA979 /* Envirnment.swift */,
+				92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,6 +233,7 @@
 			children = (
 				92F9047A27AFB3A700FEA979 /* LoginViewModel.swift */,
 				92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */,
+				92F59CAF27B18885008E06A6 /* TransferViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +244,54 @@
 				92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		92F9049427B0F5E700FEA979 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				92F904A227B1014200FEA979 /* Service */,
+				92F9049F27B1010C00FEA979 /* Response */,
+				92F9049C27B100C100FEA979 /* EndPoints */,
+				92F9049927B1000C00FEA979 /* APIManager */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		92F9049927B1000C00FEA979 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				92F9049727B1000100FEA979 /* APIManager.swift */,
+				92F9049A27B1008800FEA979 /* NetworkManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		92F9049C27B100C100FEA979 /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				92F9049D27B100E300FEA979 /* EndPoints.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		92F9049F27B1010C00FEA979 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				92F904A027B1012A00FEA979 /* APIResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		92F904A227B1014200FEA979 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				92F904A327B1015A00FEA979 /* HTTPTask.swift */,
+				92F904A527B1017E00FEA979 /* HTTPMethod.swift */,
+				92F904A727B101B100FEA979 /* EndPointType.swift */,
+				92F904A927B1021200FEA979 /* ErrorViewModel.swift */,
+				92F904AB27B1025400FEA979 /* Strings.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,13 +426,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F9049827B1000100FEA979 /* APIManager.swift in Sources */,
+				92F59CAC27B17D84008E06A6 /* TransferViewController.swift in Sources */,
 				92F9043F27AEB43A00FEA979 /* AppDelegate.swift in Sources */,
+				92F904AC27B1025400FEA979 /* Strings.swift in Sources */,
+				92F904A827B101B100FEA979 /* EndPointType.swift in Sources */,
+				92F59CAE27B18280008E06A6 /* UITextFieldExtension.swift in Sources */,
 				92F9044127AEB43A00FEA979 /* SceneDelegate.swift in Sources */,
+				92F9049B27B1008800FEA979 /* NetworkManager.swift in Sources */,
 				92F9048C27B00E0600FEA979 /* RegistrationViewController.swift in Sources */,
+				92F904AA27B1021200FEA979 /* ErrorViewModel.swift in Sources */,
 				92F9047F27AFBFB800FEA979 /* LoginViewController.swift in Sources */,
 				92F9048927AFC1A900FEA979 /* Constants.swift in Sources */,
+				92F9049227B0E6CF00FEA979 /* Envirnment.swift in Sources */,
+				92F904A127B1012A00FEA979 /* APIResponse.swift in Sources */,
+				92F59CB027B18885008E06A6 /* TransferViewModel.swift in Sources */,
 				92F9047627AEBC0E00FEA979 /* UIButtonExtention.swift in Sources */,
 				92F9049027B0D2F800FEA979 /* RegistrationViewModel.swift in Sources */,
+				92F9049E27B100E300FEA979 /* EndPoints.swift in Sources */,
+				92F904A627B1017E00FEA979 /* HTTPMethod.swift in Sources */,
+				92F904A427B1015A00FEA979 /* HTTPTask.swift in Sources */,
 				92F9047827AEBD7200FEA979 /* LoadingView.swift in Sources */,
 				92F9047B27AFB3A700FEA979 /* LoginViewModel.swift in Sources */,
 				92F9048727AFC11F00FEA979 /* CustomTextField.swift in Sources */,

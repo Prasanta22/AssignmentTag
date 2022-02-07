@@ -12,7 +12,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextfield: CustomTextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var passwordTextField: CustomTextField!
+    
     var viewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,17 +71,42 @@ class LoginViewController: UIViewController {
         passwordTextField.errorString = nil
     }
     
+    private func performAPICall() {
+        LoadingView.show()
+        let request = LoginRequestModel(username: userNameTextfield.textField.text!, password: passwordTextField.textField.text!)
+        viewModel.login(request) { [weak self] (responseModel) in
+            guard let self = self else { return }
+            LoadingView.hide()
+            DispatchQueue.main.async {
+                if responseModel?.status == StatusReponse.success {
+                    self.customErrorMessage.isHidden = true
+                    self.navigateToDashBoard()
+                } else {
+                    self.customErrorMessage.isHidden = false
+                    self.errorLabel.text = responseModel?.error
+                }
+            }
+        }
+    }
+    
+    /// Navigate to Dashboard
+    func navigateToDashBoard() {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransferViewController") as? TransferViewController {
+               if let navigator = navigationController {
+                   navigator.pushViewController(viewController, animated: true)
+               }
+           }
+    }
+    
     // MARK: - IBAction
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         clearErrorMessage()
-        // LoadingView.show()
         viewModel.validateInput(userNameTextfield.textField.text, password: passwordTextField.textField.text) { [weak self] (success, message) in
             if success {
                 guard let self = self else { return }
-                //self.performAPICall()
-                LoadingView.hide()
+                self.performAPICall()
             } else {
                 switch message {
                 case Constants.usernameEmptyMessage:

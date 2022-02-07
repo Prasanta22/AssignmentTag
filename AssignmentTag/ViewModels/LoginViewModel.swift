@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct LoginViewModel {
-    let passwordLengthRange = (6, 14) // (minimum length, maximum length)
+    let passwordLengthRange = (6, 20) // (minimum length, maximum length)
     func validateInput(_ username: String?, password: String?, completion: (Bool, String?) -> Void) {
         if let username = username {
             if username.isEmpty {
@@ -35,18 +35,25 @@ struct LoginViewModel {
         return (text.count >= range.0) && (text.count <= range.1)
     }
     
-    func login(_ requestModel: LoginRequestModel, completion: @escaping (LoginResponseModel) -> Void) {
-        let params = requestModel.getParams()
-        print("Input:\(params)")
-        var responseModel = LoginResponseModel()
-        responseModel.success = true
-        responseModel.successMessage = "User logged in successfully"
-        completion(responseModel)
-        
-        //        APIManager().login(params) { (results) in
-        //            print(results)
-        //        }
-        
+    func login(_ requestModel: LoginRequestModel, completion: @escaping (LoginResponseModel?) -> Void) {
+        APIManager().login(requestModel.username, requestModel.password) { data, response, error in
+            if error == nil {
+                guard let data = data else { return }
+                do {
+                    let loginData = try JSONDecoder().decode(LoginResponseModel.self,
+                                                             from: data)
+                    if loginData.status == "success" {
+                        completion(loginData)
+                    } else {
+                        completion(loginData)
+                    }
+                } catch _ {
+                    completion(nil)
+                }
+            }
+
+        }
+
     }
 }
 
@@ -59,14 +66,12 @@ struct LoginRequestModel {
         self.password = password
     }
 
-    func getParams() -> [String: Any] {
-        return ["username": username, "password": password]
-    }
 }
 
-struct LoginResponseModel {
-    var success = false
-    var errorMessage: String?
-    var successMessage: String?
-    var data: Any?
+struct LoginResponseModel: Decodable {
+    var status: String?
+    var token: String?
+    var username: String?
+    var accountNo: String?
+    var error: String?
 }

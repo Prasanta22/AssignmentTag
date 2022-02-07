@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    // Placeholder Strings
+    
     static let username = "Username"
     static let password = "Password"
     static let confirmPassword = "Confirm Password"
@@ -26,4 +26,17 @@ struct Constants {
     static let confirmPasswordEmptyMessage = "Please Enter Confirm Password"
     static let passwordMismatchErrorMessage = "Not matching password and confirm password"
     static let errorMessage = "both error"
+    
+    static let payeeText = "Payee"
+    static let amountText = "Amount"
+    static let downButtonImage = "DownArrow"
+    
+    static let done = "Done"
+    static let cancel = "Cancel"
+    static let ok = "Ok"
+}
+
+struct StatusReponse {
+    static let success = "success"
+    static let failure = "failed"
 }
