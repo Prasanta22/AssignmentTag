@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		92F9043F27AEB43A00FEA979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9043E27AEB43A00FEA979 /* AppDelegate.swift */; };
 		92F9044127AEB43A00FEA979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9044027AEB43A00FEA979 /* SceneDelegate.swift */; };
-		92F9044327AEB43A00FEA979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9044227AEB43A00FEA979 /* ViewController.swift */; };
 		92F9044627AEB43A00FEA979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F9044427AEB43A00FEA979 /* Main.storyboard */; };
 		92F9044827AEB43C00FEA979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F9044727AEB43C00FEA979 /* Assets.xcassets */; };
 		92F9044B27AEB43C00FEA979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F9044927AEB43C00FEA979 /* LaunchScreen.storyboard */; };
 		92F9045627AEB43C00FEA979 /* AssignmentTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9045527AEB43C00FEA979 /* AssignmentTagTests.swift */; };
 		92F9046027AEB43C00FEA979 /* AssignmentTagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9045F27AEB43C00FEA979 /* AssignmentTagUITests.swift */; };
 		92F9046227AEB43C00FEA979 /* AssignmentTagUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9046127AEB43C00FEA979 /* AssignmentTagUITestsLaunchTests.swift */; };
+		92F9047627AEBC0E00FEA979 /* UIButtonExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9047527AEBC0E00FEA979 /* UIButtonExtention.swift */; };
+		92F9047827AEBD7200FEA979 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9047727AEBD7200FEA979 /* LoadingView.swift */; };
+		92F9047B27AFB3A700FEA979 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9047A27AFB3A700FEA979 /* LoginViewModel.swift */; };
+		92F9047F27AFBFB800FEA979 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9047E27AFBFB800FEA979 /* LoginViewController.swift */; };
+		92F9048527AFC0D200FEA979 /* CustomTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F9048427AFC0D200FEA979 /* CustomTextField.xib */; };
+		92F9048727AFC11F00FEA979 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048627AFC11F00FEA979 /* CustomTextField.swift */; };
+		92F9048927AFC1A900FEA979 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048827AFC1A900FEA979 /* Constants.swift */; };
+		92F9048C27B00E0600FEA979 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */; };
+		92F9049027B0D2F800FEA979 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +47,6 @@
 		92F9043B27AEB43A00FEA979 /* AssignmentTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F9043E27AEB43A00FEA979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92F9044027AEB43A00FEA979 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92F9044227AEB43A00FEA979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92F9044527AEB43A00FEA979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92F9044727AEB43C00FEA979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92F9044A27AEB43C00FEA979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,15 @@
 		92F9045B27AEB43C00FEA979 /* AssignmentTagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentTagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F9045F27AEB43C00FEA979 /* AssignmentTagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTagUITests.swift; sourceTree = "<group>"; };
 		92F9046127AEB43C00FEA979 /* AssignmentTagUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTagUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		92F9047527AEBC0E00FEA979 /* UIButtonExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtention.swift; sourceTree = "<group>"; };
+		92F9047727AEBD7200FEA979 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		92F9047A27AFB3A700FEA979 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		92F9047E27AFBFB800FEA979 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		92F9048427AFC0D200FEA979 /* CustomTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTextField.xib; sourceTree = "<group>"; };
+		92F9048627AFC11F00FEA979 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		92F9048827AFC1A900FEA979 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +117,10 @@
 			children = (
 				92F9043E27AEB43A00FEA979 /* AppDelegate.swift */,
 				92F9044027AEB43A00FEA979 /* SceneDelegate.swift */,
-				92F9044227AEB43A00FEA979 /* ViewController.swift */,
 				92F9044427AEB43A00FEA979 /* Main.storyboard */,
+				92F9047927AFB36200FEA979 /* ViewModels */,
+				92F9047127AEBAB800FEA979 /* Utility */,
+				92F9046E27AEB72900FEA979 /* Controllers */,
 				92F9044727AEB43C00FEA979 /* Assets.xcassets */,
 				92F9044927AEB43C00FEA979 /* LaunchScreen.storyboard */,
 				92F9044C27AEB43C00FEA979 /* Info.plist */,
@@ -125,6 +143,68 @@
 				92F9046127AEB43C00FEA979 /* AssignmentTagUITestsLaunchTests.swift */,
 			);
 			path = AssignmentTagUITests;
+			sourceTree = "<group>";
+		};
+		92F9046E27AEB72900FEA979 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92F9048A27B00DDF00FEA979 /* Registration */,
+				92F9047227AEBB6B00FEA979 /* Login */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		92F9047127AEBAB800FEA979 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				92F9047427AEBBE400FEA979 /* Extension */,
+				92F9047327AEBB8300FEA979 /* CustomTextField */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		92F9047227AEBB6B00FEA979 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				92F9047E27AFBFB800FEA979 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		92F9047327AEBB8300FEA979 /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				92F9048427AFC0D200FEA979 /* CustomTextField.xib */,
+				92F9048627AFC11F00FEA979 /* CustomTextField.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		92F9047427AEBBE400FEA979 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				92F9047527AEBC0E00FEA979 /* UIButtonExtention.swift */,
+				92F9047727AEBD7200FEA979 /* LoadingView.swift */,
+				92F9048827AFC1A900FEA979 /* Constants.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		92F9047927AFB36200FEA979 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				92F9047A27AFB3A700FEA979 /* LoginViewModel.swift */,
+				92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		92F9048A27B00DDF00FEA979 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				92F9048B27B00E0600FEA979 /* RegistrationViewController.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +314,7 @@
 				92F9044B27AEB43C00FEA979 /* LaunchScreen.storyboard in Resources */,
 				92F9044827AEB43C00FEA979 /* Assets.xcassets in Resources */,
 				92F9044627AEB43A00FEA979 /* Main.storyboard in Resources */,
+				92F9048527AFC0D200FEA979 /* CustomTextField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92F9044327AEB43A00FEA979 /* ViewController.swift in Sources */,
 				92F9043F27AEB43A00FEA979 /* AppDelegate.swift in Sources */,
 				92F9044127AEB43A00FEA979 /* SceneDelegate.swift in Sources */,
+				92F9048C27B00E0600FEA979 /* RegistrationViewController.swift in Sources */,
+				92F9047F27AFBFB800FEA979 /* LoginViewController.swift in Sources */,
+				92F9048927AFC1A900FEA979 /* Constants.swift in Sources */,
+				92F9047627AEBC0E00FEA979 /* UIButtonExtention.swift in Sources */,
+				92F9049027B0D2F800FEA979 /* RegistrationViewModel.swift in Sources */,
+				92F9047827AEBD7200FEA979 /* LoadingView.swift in Sources */,
+				92F9047B27AFB3A700FEA979 /* LoginViewModel.swift in Sources */,
+				92F9048727AFC11F00FEA979 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
