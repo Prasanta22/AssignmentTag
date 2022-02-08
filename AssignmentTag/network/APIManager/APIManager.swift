@@ -53,8 +53,15 @@ struct APIManager {
         }
     }
     
-    func transfer(completion: @escaping DataTaskResponse) {
+    func payeeList(completion: @escaping DataTaskResponse) {
         let endPoint = UserApi.payees
+        manager.request(endPoint) { data, response, error in
+            completion(data, response, error)
+        }
+    }
+    
+    func makeTransfer(_ payeeName: String,_ amount: Int,_ description: String, completion: @escaping DataTaskResponse) {
+        let endPoint = UserApi.transfer(receipient: payeeName, amount: amount, description: description)
         manager.request(endPoint) { data, response, error in
             completion(data, response, error)
         }

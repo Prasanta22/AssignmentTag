@@ -79,6 +79,7 @@ class LoginViewController: UIViewController {
             LoadingView.hide()
             DispatchQueue.main.async {
                 if responseModel?.status == StatusReponse.success {
+                    Keychain.set((responseModel?.token)!, forKey: "userToken")
                     self.customErrorMessage.isHidden = true
                     self.navigateToDashBoard()
                 } else {

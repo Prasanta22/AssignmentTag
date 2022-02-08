@@ -21,6 +21,8 @@ struct Constants {
     
     static let usernameEmptyMessage = "Username is required"
     static let passwordEmptyMessage = "Password is required"
+    static let payeeEmptyMessage = "Payee is required"
+    static let amountEmptyMessage = "Amount is required"
     static let usernameErrorMessage = "Username is invalid"
     static let passwordErrorMessage = "Password length must be in range 6-10 characters."
     static let confirmPasswordEmptyMessage = "Please Enter Confirm Password"
@@ -34,6 +36,9 @@ struct Constants {
     static let done = "Done"
     static let cancel = "Cancel"
     static let ok = "Ok"
+    
+    static let receipient = "receipientAccountNo"
+    static let description = "description"
 }
 
 struct StatusReponse {

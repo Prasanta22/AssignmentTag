@@ -49,9 +49,10 @@ class Manager<EndPoint: EndPointType>: RequestManager {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
         case .getRequest:
+            let retrievedToken: String? = Keychain.value(forKey: "userToken") ?? "Not found"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.setValue("application/json", forHTTPHeaderField: "Accept")
-            request.setValue("application/json", forHTTPHeaderField: "Authorization")
+            request.setValue(retrievedToken, forHTTPHeaderField: "Authorization")
         }
         request.httpMethod = route.httpMethod.rawValue.uppercased()
         if request.httpMethod == ReuestType.post.rawValue.uppercased() {

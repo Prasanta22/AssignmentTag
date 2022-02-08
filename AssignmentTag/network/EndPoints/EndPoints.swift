@@ -34,6 +34,9 @@ public enum UserApi {
                password: String)
     case signup(username: String,
                   password: String)
+    case transfer(receipient: String,
+                  amount: Int,
+                  description: String)
     case payees
 }
 
@@ -46,6 +49,10 @@ extension UserApi: EndPointType {
         case .signup(let username, let password):
             return [Constants.username.lowercased(): username,
                     Constants.password.lowercased() : password]
+        case .transfer(let receipient, let amount, let description):
+            return [Constants.receipient: receipient,
+                    Constants.amountText.lowercased() : amount,
+                    Constants.description : description]
         case .payees:
             return nil
         }
@@ -60,6 +67,8 @@ extension UserApi: EndPointType {
             return "/register"
         case .payees:
             return "/payees"
+        case .transfer:
+            return "/transfer"
         }
     }
 
@@ -71,6 +80,8 @@ extension UserApi: EndPointType {
             return .post
         case .payees:
             return .get
+        case .transfer:
+            return .post
         }
     }
 
@@ -81,6 +92,8 @@ extension UserApi: EndPointType {
         case .signup:
             return .request
         case .payees:
+            return .getRequest
+        case .transfer:
             return .getRequest
         }
     }
