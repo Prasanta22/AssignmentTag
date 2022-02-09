@@ -21,6 +21,13 @@ class LoginViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        userNameTextfield?.textField.text = ""
+        passwordTextField?.textField.text = ""
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     /// Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -74,7 +81,7 @@ class LoginViewController: UIViewController {
     private func performAPICall() {
         LoadingView.show()
         let request = LoginRequestModel(username: userNameTextfield.textField.text!, password: passwordTextField.textField.text!)
-        viewModel.login(request) { [weak self] (responseModel) in
+        viewModel.login(request) { [weak self] (responseModel, error)  in
             guard let self = self else { return }
             LoadingView.hide()
             DispatchQueue.main.async {
@@ -84,7 +91,7 @@ class LoginViewController: UIViewController {
                     self.navigateToDashBoard()
                 } else {
                     self.customErrorMessage.isHidden = false
-                    self.errorLabel.text = responseModel?.error
+                    self.errorLabel.text = error
                 }
             }
         }
@@ -92,7 +99,7 @@ class LoginViewController: UIViewController {
     
     /// Navigate to Dashboard
     func navigateToDashBoard() {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TransferViewController") as? TransferViewController {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController {
                if let navigator = navigationController {
                    navigator.pushViewController(viewController, animated: true)
                }

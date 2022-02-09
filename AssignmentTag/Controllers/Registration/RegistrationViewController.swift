@@ -20,6 +20,10 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     
     /// Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

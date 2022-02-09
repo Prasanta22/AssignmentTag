@@ -66,4 +66,18 @@ struct APIManager {
             completion(data, response, error)
         }
     }
+    
+    func getBalance(completion: @escaping DataTaskResponse) {
+        let endPoint = UserApi.balance
+        manager.request(endPoint) { data, response, error in
+            completion(data, response, error)
+        }
+    }
+    
+    func getTransaction(completion: @escaping DataTaskResponse) {
+        let endPoint = UserApi.transaction
+        manager.request(endPoint) { data, response, error in
+            completion(data, response, error)
+        }
+    }
 }

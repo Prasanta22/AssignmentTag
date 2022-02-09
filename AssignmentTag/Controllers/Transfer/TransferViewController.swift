@@ -32,6 +32,12 @@ class TransferViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    /// Load ErrorView
+    func loadCustomErrorView() {
+        customErrorMessage.addViewBorder(borderColor: UIColor.red.cgColor,
+                                         borderWith: 1.2,
+                                         borderCornerRadius: 12.0)
+    }
     
     /// Button Setup
     func buttonSetup() {
@@ -42,6 +48,7 @@ class TransferViewController: UIViewController {
     func setupUI() {
         customErrorMessage.isHidden = true
         setUpTextfields()
+        loadCustomErrorView()
         buttonSetup()
         descriptionBackView?.addViewBorder(borderColor: UIColor.black.cgColor,
                                               borderWith: 1.5,

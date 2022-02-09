@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		921F0D9E27B19FD600943EF1 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0D9D27B19FD600943EF1 /* KeychainWrapper.swift */; };
+		921F0DA127B2685200943EF1 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DA027B2685200943EF1 /* DashboardViewController.swift */; };
+		921F0DA327B2688100943EF1 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DA227B2688100943EF1 /* DashboardViewModel.swift */; };
+		921F0DAA27B291A200943EF1 /* DashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921F0DA927B291A200943EF1 /* DashboardCell.xib */; };
+		921F0DAC27B2DACF00943EF1 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DAB27B2DACF00943EF1 /* DashboardCell.swift */; };
 		92F59CAC27B17D84008E06A6 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAB27B17D84008E06A6 /* TransferViewController.swift */; };
 		92F59CAE27B18280008E06A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */; };
 		92F59CB027B18885008E06A6 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAF27B18885008E06A6 /* TransferViewModel.swift */; };
@@ -59,6 +63,10 @@
 
 /* Begin PBXFileReference section */
 		921F0D9D27B19FD600943EF1 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		921F0DA027B2685200943EF1 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		921F0DA227B2688100943EF1 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		921F0DA927B291A200943EF1 /* DashboardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardCell.xib; sourceTree = "<group>"; };
+		921F0DAB27B2DACF00943EF1 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		929D438027B198A100648819 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F59CAB27B17D84008E06A6 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -129,6 +137,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		921F0D9F27B2683200943EF1 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				921F0DA027B2685200943EF1 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		921F0DA427B2913800943EF1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				921F0DA927B291A200943EF1 /* DashboardCell.xib */,
+				921F0DAB27B2DACF00943EF1 /* DashboardCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		92F59CAA27B17D57008E06A6 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +222,8 @@
 		92F9046E27AEB72900FEA979 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				921F0DA427B2913800943EF1 /* Cell */,
+				921F0D9F27B2683200943EF1 /* Dashboard */,
 				92F59CAA27B17D57008E06A6 /* Transfer */,
 				92F9048A27B00DDF00FEA979 /* Registration */,
 				92F9047227AEBB6B00FEA979 /* Login */,
@@ -248,6 +275,7 @@
 				92F9047A27AFB3A700FEA979 /* LoginViewModel.swift */,
 				92F9048F27B0D2F800FEA979 /* RegistrationViewModel.swift */,
 				92F59CAF27B18885008E06A6 /* TransferViewModel.swift */,
+				921F0DA227B2688100943EF1 /* DashboardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -420,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F9044B27AEB43C00FEA979 /* LaunchScreen.storyboard in Resources */,
+				921F0DAA27B291A200943EF1 /* DashboardCell.xib in Resources */,
 				92F9044827AEB43C00FEA979 /* Assets.xcassets in Resources */,
 				92F9044627AEB43A00FEA979 /* Main.storyboard in Resources */,
 				92F9048527AFC0D200FEA979 /* CustomTextField.xib in Resources */,
@@ -464,12 +493,15 @@
 				92F59CB027B18885008E06A6 /* TransferViewModel.swift in Sources */,
 				92F9047627AEBC0E00FEA979 /* UIButtonExtention.swift in Sources */,
 				92F9049027B0D2F800FEA979 /* RegistrationViewModel.swift in Sources */,
+				921F0DA127B2685200943EF1 /* DashboardViewController.swift in Sources */,
 				92F9049E27B100E300FEA979 /* EndPoints.swift in Sources */,
 				92F904A627B1017E00FEA979 /* HTTPMethod.swift in Sources */,
 				92F904A427B1015A00FEA979 /* HTTPTask.swift in Sources */,
 				92F9047827AEBD7200FEA979 /* LoadingView.swift in Sources */,
 				921F0D9E27B19FD600943EF1 /* KeychainWrapper.swift in Sources */,
+				921F0DA327B2688100943EF1 /* DashboardViewModel.swift in Sources */,
 				92F9047B27AFB3A700FEA979 /* LoginViewModel.swift in Sources */,
+				921F0DAC27B2DACF00943EF1 /* DashboardCell.swift in Sources */,
 				92F9048727AFC11F00FEA979 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

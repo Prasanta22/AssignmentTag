@@ -38,6 +38,8 @@ public enum UserApi {
                   amount: Int,
                   description: String)
     case payees
+    case balance
+    case transaction
 }
 
 extension UserApi: EndPointType {
@@ -53,7 +55,9 @@ extension UserApi: EndPointType {
             return [Constants.receipient: receipient,
                     Constants.amountText.lowercased() : amount,
                     Constants.description : description]
-        case .payees:
+        case .balance,
+                .payees,
+                .transaction:
             return nil
         }
     }
@@ -69,31 +73,35 @@ extension UserApi: EndPointType {
             return "/payees"
         case .transfer:
             return "/transfer"
+        case .balance:
+            return "/balance"
+        case .transaction:
+            return "/transactions"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .login:
+        case .login,
+                .signup,
+                .transfer:
             return .post
-        case .signup:
-            return .post
-        case .payees:
+        case .payees,
+                .balance,
+                .transaction:
             return .get
-        case .transfer:
-            return .post
         }
     }
 
     var task: HTTPTask {
         switch self {
-        case .login:
+        case .login,
+                .signup:
             return .request
-        case .signup:
-            return .request
-        case .payees:
-            return .getRequest
-        case .transfer:
+        case .payees,
+                .transfer,
+                .balance,
+                .transaction:
             return .getRequest
         }
     }

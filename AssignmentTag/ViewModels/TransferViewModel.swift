@@ -20,6 +20,7 @@ struct TransferViewModel {
         if let amountCount = amount {
             if amountCount.isEmpty {
                 completion(false, Constants.amountEmptyMessage)
+                return
             }
         } else {
             completion(false, Constants.amountEmptyMessage)

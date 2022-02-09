@@ -21,8 +21,10 @@ struct LoginViewModel {
         if let password = password {
             if password.isEmpty {
                 completion(false, Constants.passwordEmptyMessage)
+                return
             } else if !validateTextLength(password, range: passwordLengthRange) {
                 completion(false, Constants.passwordErrorMessage)
+                return
             }
         } else {
             completion(false, Constants.passwordEmptyMessage)
@@ -35,7 +37,7 @@ struct LoginViewModel {
         return (text.count >= range.0) && (text.count <= range.1)
     }
     
-    func login(_ requestModel: LoginRequestModel, completion: @escaping (LoginResponseModel?) -> Void) {
+    func login(_ requestModel: LoginRequestModel, completion: @escaping (LoginResponseModel?, String?) -> Void) {
         APIManager().login(requestModel.username, requestModel.password) { data, response, error in
             if error == nil {
                 guard let data = data else { return }
@@ -43,15 +45,18 @@ struct LoginViewModel {
                     let loginData = try JSONDecoder().decode(LoginResponseModel.self,
                                                              from: data)
                     if loginData.status == "success" {
-                        completion(loginData)
+                        completion(loginData, nil)
                     } else {
-                        completion(loginData)
+                        completion(nil, loginData.error)
                     }
                 } catch _ {
-                    completion(nil)
+                    completion(nil, error?.localizedDescription)
                 }
+            } else {
+                guard let err = error else { return }
+                completion(nil, err.localizedDescription)
             }
-
+            
         }
 
     }

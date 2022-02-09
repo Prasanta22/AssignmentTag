@@ -39,6 +39,18 @@ struct Constants {
     
     static let receipient = "receipientAccountNo"
     static let description = "description"
+    
+    // Date Format
+    static let dateFormat1 = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    static let dateFormat2 = "dd MMM yyyy"
+    static let dateErrorMeesage = "There was an error decoding the string"
+    
+    // Color Asset
+    static let transactionAmountColor = "TransactionAmountColor"
+    static let dashboardCell = "DashboardCell"
+    static let trasactionTitle = "Your transaction history"
+    static let transactionTransfer = "transfer"
+    static let currencyType = "SGD"
 }
 
 struct StatusReponse {
