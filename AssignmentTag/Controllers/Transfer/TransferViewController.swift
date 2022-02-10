@@ -9,18 +9,18 @@ import UIKit
 
 class TransferViewController: UIViewController {
 
-    @IBOutlet weak var customErrorMessage: UIView!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var transferButton: UIButton!
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var descriptionBackView: UIView!
-    @IBOutlet weak var amountTextField: CustomTextField!
-    @IBOutlet weak var payeeTextField: CustomTextField!
+    @IBOutlet weak var customErrorMessage: UIView?
+    @IBOutlet weak var errorLabel: UILabel?
+    @IBOutlet weak var transferButton: UIButton?
+    @IBOutlet weak var descriptionTextView: UITextView?
+    @IBOutlet weak var descriptionBackView: UIView?
+    @IBOutlet weak var amountTextField: CustomTextField?
+    @IBOutlet weak var payeeTextField: CustomTextField?
     var payeePicker: UIPickerView! = UIPickerView()
     var viewModel = TransferViewModel()
     private var payeesList: [PayeeData]?
     private var index: Int = 0
-    private var accountNo = ""
+    var accountNo = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +34,19 @@ class TransferViewController: UIViewController {
     }
     /// Load ErrorView
     func loadCustomErrorView() {
-        customErrorMessage.addViewBorder(borderColor: UIColor.red.cgColor,
+        customErrorMessage?.addViewBorder(borderColor: UIColor.red.cgColor,
                                          borderWith: 1.2,
                                          borderCornerRadius: 12.0)
     }
     
     /// Button Setup
     func buttonSetup() {
-        transferButton.configure(30, borderColor: .black)
+        transferButton?.configure(30, borderColor: .black)
     }
     
     /// Funciton to setup UI
     func setupUI() {
-        customErrorMessage.isHidden = true
+        customErrorMessage?.isHidden = true
         setUpTextfields()
         loadCustomErrorView()
         buttonSetup()
@@ -105,15 +105,15 @@ class TransferViewController: UIViewController {
     /// Funciton to close picker after selection
     @objc func doneTapped() {
         guard let payees = payeesList else { return }
-        payeeTextField.textField.text = payees[index].name
+        payeeTextField?.textField.text = payees[index].name
         accountNo = payees[index].accountNo
-        payeeTextField.errorString = nil
-        payeeTextField.textField.resignFirstResponder()
+        payeeTextField?.errorString = nil
+        payeeTextField?.textField.resignFirstResponder()
     }
     
     /// Funciton to close picker
     @objc func cancelTapped() {
-        payeeTextField.textField.resignFirstResponder()
+        payeeTextField?.textField.resignFirstResponder()
     }
     /// Function to add done button on keyboard
     private func addDoneButtonOnKeyboard(){
@@ -142,7 +142,7 @@ class TransferViewController: UIViewController {
     }
     
     @objc func doneButtonAction(){
-        amountTextField.textField.resignFirstResponder()
+        amountTextField?.textField.resignFirstResponder()
     }
     
     func getPayeeList() {
@@ -154,10 +154,10 @@ class TransferViewController: UIViewController {
                 if responseModel?.status == StatusReponse.success {
                     self.payeesList = responseModel?.data
                     self.payeePicker.reloadAllComponents()
-                    self.customErrorMessage.isHidden = true
+                    self.customErrorMessage?.isHidden = true
                 } else {
-                    self.customErrorMessage.isHidden = false
-                    self.errorLabel.text = responseModel?.error
+                    self.customErrorMessage?.isHidden = false
+                    self.errorLabel?.text = responseModel?.error
                 }
             }
         }
@@ -165,27 +165,27 @@ class TransferViewController: UIViewController {
     
     /// Clear error message
     func clearErrorMessage() {
-        payeeTextField.errorString = nil
-        amountTextField.errorString = nil
+        payeeTextField?.errorString = nil
+        amountTextField?.errorString = nil
     }
     
     private func performAPICall() {
         LoadingView.show()
-        guard let amount = amountTextField.textField.text, let amountCount = Int64(amount) else {
+        guard let amount = amountTextField?.textField.text, let amountCount = Int64(amount) else {
             /// Not valid
             return
         }
-        let request = TransferRequestModel(payeeName: accountNo, amount: Int(amountCount), description: descriptionTextView.text!)
+        let request = TransferRequestModel(payeeName: accountNo, amount: Int(amountCount), description: descriptionTextView?.text ?? "")
         viewModel.makeTransfer(request) { [weak self] (responseModel) in
             guard let self = self else { return }
             LoadingView.hide()
             DispatchQueue.main.async {
                 if responseModel?.status == StatusReponse.success {
-                    self.customErrorMessage.isHidden = true
+                    self.customErrorMessage?.isHidden = true
                     self.navigationController?.popViewController(animated: true)
                 } else {
-                    self.customErrorMessage.isHidden = false
-                    self.errorLabel.text = responseModel?.error
+                    self.customErrorMessage?.isHidden = false
+                    self.errorLabel?.text = responseModel?.error
                 }
             }
         }
@@ -194,16 +194,16 @@ class TransferViewController: UIViewController {
     @IBAction func transferButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         clearErrorMessage()
-        viewModel.validateInput(payeeTextField.textField.text, amount: amountTextField.textField.text) { [weak self] (success, message) in
+        viewModel.validateInput(payeeTextField?.textField.text, amount: amountTextField?.textField.text) { [weak self] (success, message) in
             if success {
                 guard let self = self else { return }
                 self.performAPICall()
             } else {
                 switch message {
                 case Constants.payeeEmptyMessage:
-                    payeeTextField.errorString = message
+                    payeeTextField?.errorString = message
                 case Constants.amountEmptyMessage:
-                    amountTextField.errorString = message
+                    amountTextField?.errorString = message
                 default:
                     break
                 }
@@ -219,12 +219,12 @@ class TransferViewController: UIViewController {
 extension TransferViewController: UITextFieldDelegate, UITextViewDelegate {
     /// Textfield delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == payeeTextField.textField {
-            amountTextField.textField.becomeFirstResponder()
-        } else if textField == amountTextField.textField {
-            descriptionTextView.becomeFirstResponder()
+        if textField == payeeTextField?.textField {
+            amountTextField?.textField.becomeFirstResponder()
+        } else if textField == amountTextField?.textField {
+            descriptionTextView?.becomeFirstResponder()
         } else {
-            descriptionTextView.becomeFirstResponder()
+            descriptionTextView?.becomeFirstResponder()
         }
         return true
     }

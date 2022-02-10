@@ -8,12 +8,12 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    @IBOutlet weak var customErrorMessage: UIView!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var userNameTextfield: CustomTextField!
-    @IBOutlet weak var confirmPasswordTextfield: CustomTextField!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var passwordTextField: CustomTextField!
+    @IBOutlet weak var customErrorMessage: UIView?
+    @IBOutlet weak var errorLabel: UILabel?
+    @IBOutlet weak var userNameTextfield: CustomTextField?
+    @IBOutlet weak var confirmPasswordTextfield: CustomTextField?
+    @IBOutlet weak var registerButton: UIButton?
+    @IBOutlet weak var passwordTextField: CustomTextField?
     
     var viewModel = RegistrationViewModel()
     override func viewDidLoad() {
@@ -32,12 +32,12 @@ class RegistrationViewController: UIViewController {
     
     /// Button Setup
     func buttonSetup() {
-        registerButton.configure(30, borderColor: .black)
+        registerButton?.configure(30, borderColor: .black)
     }
     
     /// Funciton to setup UI
     func setupUI() {
-        customErrorMessage.isHidden = true
+        customErrorMessage?.isHidden = true
         setUpTextfields()
         loadCustomErrorView()
         buttonSetup()
@@ -66,31 +66,31 @@ class RegistrationViewController: UIViewController {
     
     /// Load ErrorView
     func loadCustomErrorView() {
-        customErrorMessage.addViewBorder(borderColor: UIColor.red.cgColor,
+        customErrorMessage?.addViewBorder(borderColor: UIColor.red.cgColor,
                                          borderWith: 1.2,
                                          borderCornerRadius: 12.0)
     }
     
     /// Clear error message
     func clearErrorMessage() {
-        userNameTextfield.errorString = nil
-        passwordTextField.errorString = nil
-        confirmPasswordTextfield.errorString = nil
+        userNameTextfield?.errorString = nil
+        passwordTextField?.errorString = nil
+        confirmPasswordTextfield?.errorString = nil
     }
     
     private func performAPICall() {
         LoadingView.show()
-        let request = SignUpRequestModel(username: userNameTextfield.textField.text!, password: passwordTextField.textField.text!)
+        let request = SignUpRequestModel(username: userNameTextfield?.textField.text ?? "", password: passwordTextField?.textField.text ?? "")
         viewModel.signup(request) { [weak self] (responseModel) in
             guard let self = self else { return }
             LoadingView.hide()
             DispatchQueue.main.async {
                 if responseModel?.status == StatusReponse.success {
-                    self.customErrorMessage.isHidden = true
+                    self.customErrorMessage?.isHidden = true
                     self.navigationController?.popViewController(animated: true)
                 } else {
-                    self.customErrorMessage.isHidden = false
-                    self.errorLabel.text = responseModel?.error
+                    self.customErrorMessage?.isHidden = false
+                    self.errorLabel?.text = responseModel?.error
                 }
             }
         }
@@ -103,8 +103,8 @@ class RegistrationViewController: UIViewController {
     @IBAction func registrationButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         clearErrorMessage()
-        self.customErrorMessage.isHidden = true
-        let signupModel = SignUpModel.init(username: userNameTextfield.textField.text, password: passwordTextField.textField.text, confirmPassword: confirmPasswordTextfield.textField.text)
+        self.customErrorMessage?.isHidden = true
+        let signupModel = SignUpModel.init(username: userNameTextfield?.textField.text, password: passwordTextField?.textField.text, confirmPassword: confirmPasswordTextfield?.textField.text)
         viewModel.validateInput(signupModel) { [weak self] (success, errorMessage) in
             guard let self = self else { return }
             if success {
@@ -112,15 +112,15 @@ class RegistrationViewController: UIViewController {
             } else {
                 switch errorMessage {
                 case Constants.usernameEmptyMessage:
-                    userNameTextfield.errorString = errorMessage
+                    userNameTextfield?.errorString = errorMessage
                 case Constants.passwordEmptyMessage:
-                    passwordTextField.errorString = errorMessage
+                    passwordTextField?.errorString = errorMessage
                 case Constants.passwordErrorMessage:
-                    passwordTextField.errorString = errorMessage
+                    passwordTextField?.errorString = errorMessage
                 case Constants.confirmPasswordEmptyMessage:
-                    confirmPasswordTextfield.errorString = errorMessage
+                    confirmPasswordTextfield?.errorString = errorMessage
                 case Constants.passwordMismatchErrorMessage:
-                    confirmPasswordTextfield.errorString = errorMessage
+                    confirmPasswordTextfield?.errorString = errorMessage
                 default:
                     break
                 }
@@ -131,17 +131,14 @@ class RegistrationViewController: UIViewController {
 
 // MARK: - TextField Delegate
 extension RegistrationViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTextfield.textField {
-            passwordTextField.textField.becomeFirstResponder()
-        } else if textField == passwordTextField.textField {
-            confirmPasswordTextfield.textField.becomeFirstResponder()
-        } else if textField == confirmPasswordTextfield.textField {
-            registrationButtonAction(registerButton)
+        if textField == userNameTextfield?.textField {
+            passwordTextField?.textField.becomeFirstResponder()
+        } else if textField == passwordTextField?.textField {
+            confirmPasswordTextfield?.textField.becomeFirstResponder()
+        } else if textField == confirmPasswordTextfield?.textField {
+            registrationButtonAction(registerButton ?? UIButton())
         }
         return true
     }

@@ -8,12 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var customErrorMessage: UIView!
-    @IBOutlet weak var userNameTextfield: CustomTextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var passwordTextField: CustomTextField!
+    @IBOutlet weak var customErrorMessage: UIView?
+    @IBOutlet weak var userNameTextfield: CustomTextField?
+    @IBOutlet weak var loginButton: UIButton?
+    @IBOutlet weak var registerButton: UIButton?
+    @IBOutlet weak var errorLabel: UILabel?
+    @IBOutlet weak var passwordTextField: CustomTextField?
     
     var viewModel = LoginViewModel()
     override func viewDidLoad() {
@@ -35,16 +35,17 @@ class LoginViewController: UIViewController {
     
     /// Button Setup
     func buttonSetup() {
-        loginButton.configure(30, borderColor: .black)
-        registerButton.configure(30, borderColor: .black)
+        loginButton?.configure(30, borderColor: .black)
+        registerButton?.configure(30, borderColor: .black)
     }
     
     /// Funciton to setup UI
     func setupUI() {
-        customErrorMessage.isHidden = true
-        setUpTextfields()
-        loadCustomErrorView()
-        buttonSetup()
+        self.customErrorMessage?.isHidden = true
+        self.setUpTextfields()
+        self.loadCustomErrorView()
+        self.buttonSetup()
+        
     }
     
     /// Funciton to setup textinputs
@@ -67,31 +68,31 @@ class LoginViewController: UIViewController {
     
     /// Load ErrorView
     func loadCustomErrorView() {
-        customErrorMessage.addViewBorder(borderColor: UIColor.red.cgColor,
+        customErrorMessage?.addViewBorder(borderColor: UIColor.red.cgColor,
                                          borderWith: 1.2,
                                          borderCornerRadius: 12.0)
     }
     
     /// Clear error message
     func clearErrorMessage() {
-        userNameTextfield.errorString = nil
-        passwordTextField.errorString = nil
+        userNameTextfield?.errorString = nil
+        passwordTextField?.errorString = nil
     }
     
     private func performAPICall() {
         LoadingView.show()
-        let request = LoginRequestModel(username: userNameTextfield.textField.text!, password: passwordTextField.textField.text!)
+        let request = LoginRequestModel(username: userNameTextfield?.textField.text ?? "", password: passwordTextField?.textField.text ?? "")
         viewModel.login(request) { [weak self] (responseModel, error)  in
             guard let self = self else { return }
             LoadingView.hide()
             DispatchQueue.main.async {
                 if responseModel?.status == StatusReponse.success {
                     Keychain.set((responseModel?.token)!, forKey: "userToken")
-                    self.customErrorMessage.isHidden = true
+                    self.customErrorMessage?.isHidden = true
                     self.navigateToDashBoard()
                 } else {
-                    self.customErrorMessage.isHidden = false
-                    self.errorLabel.text = error
+                    self.customErrorMessage?.isHidden = false
+                    self.errorLabel?.text = error
                 }
             }
         }
@@ -111,18 +112,18 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
         clearErrorMessage()
-        viewModel.validateInput(userNameTextfield.textField.text, password: passwordTextField.textField.text) { [weak self] (success, message) in
+        viewModel.validateInput(userNameTextfield?.textField.text, password: passwordTextField?.textField.text) { [weak self] (success, message) in
             if success {
                 guard let self = self else { return }
                 self.performAPICall()
             } else {
                 switch message {
                 case Constants.usernameEmptyMessage:
-                    userNameTextfield.errorString = message
+                    userNameTextfield?.errorString = message
                 case Constants.passwordEmptyMessage:
-                    passwordTextField.errorString = message
+                    passwordTextField?.errorString = message
                 case Constants.passwordErrorMessage:
-                    passwordTextField.errorString = message
+                    passwordTextField?.errorString = message
                 default:
                     break
                 }
@@ -142,15 +143,12 @@ class LoginViewController: UIViewController {
 
 // MARK: - TextField Delegate
 extension LoginViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTextfield.textField {
-            passwordTextField.textField.becomeFirstResponder()
-        } else if textField == passwordTextField.textField {
-            loginButtonAction(loginButton)
+        if textField == userNameTextfield?.textField {
+            passwordTextField?.textField.becomeFirstResponder()
+        } else if textField == passwordTextField?.textField {
+            loginButtonAction(loginButton ?? UIButton())
         }
         return true
     }

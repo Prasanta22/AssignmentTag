@@ -12,6 +12,12 @@
 		921F0DA327B2688100943EF1 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DA227B2688100943EF1 /* DashboardViewModel.swift */; };
 		921F0DAA27B291A200943EF1 /* DashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921F0DA927B291A200943EF1 /* DashboardCell.xib */; };
 		921F0DAC27B2DACF00943EF1 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DAB27B2DACF00943EF1 /* DashboardCell.swift */; };
+		921F0DAE27B3BE3700943EF1 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DAD27B3BE3700943EF1 /* LoginViewControllerTests.swift */; };
+		921F0DB127B3EDAE00943EF1 /* RegistrationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DB027B3EDAE00943EF1 /* RegistrationViewControllerTests.swift */; };
+		921F0DB327B3F77600943EF1 /* TransferViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DB227B3F77600943EF1 /* TransferViewControllerTests.swift */; };
+		921F0DB527B4D2EF00943EF1 /* DashboardViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DB427B4D2EF00943EF1 /* DashboardViewControllerTests.swift */; };
+		921F0DB727B4E76300943EF1 /* DashboardCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DB627B4E76300943EF1 /* DashboardCellTests.swift */; };
+		921F0DB927B4EA6800943EF1 /* UITextFieldExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F0DB827B4EA6800943EF1 /* UITextFieldExtensionTests.swift */; };
 		92F59CAC27B17D84008E06A6 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAB27B17D84008E06A6 /* TransferViewController.swift */; };
 		92F59CAE27B18280008E06A6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */; };
 		92F59CB027B18885008E06A6 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F59CAF27B18885008E06A6 /* TransferViewModel.swift */; };
@@ -67,6 +73,12 @@
 		921F0DA227B2688100943EF1 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		921F0DA927B291A200943EF1 /* DashboardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardCell.xib; sourceTree = "<group>"; };
 		921F0DAB27B2DACF00943EF1 /* DashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
+		921F0DAD27B3BE3700943EF1 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
+		921F0DB027B3EDAE00943EF1 /* RegistrationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerTests.swift; sourceTree = "<group>"; };
+		921F0DB227B3F77600943EF1 /* TransferViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewControllerTests.swift; sourceTree = "<group>"; };
+		921F0DB427B4D2EF00943EF1 /* DashboardViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewControllerTests.swift; sourceTree = "<group>"; };
+		921F0DB627B4E76300943EF1 /* DashboardCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellTests.swift; sourceTree = "<group>"; };
+		921F0DB827B4EA6800943EF1 /* UITextFieldExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionTests.swift; sourceTree = "<group>"; };
 		929D438027B198A100648819 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F59CAB27B17D84008E06A6 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		92F59CAD27B18280008E06A6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -154,6 +166,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		921F0DAF27B3ED7E00943EF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				921F0DAD27B3BE3700943EF1 /* LoginViewControllerTests.swift */,
+				921F0DB027B3EDAE00943EF1 /* RegistrationViewControllerTests.swift */,
+				921F0DB227B3F77600943EF1 /* TransferViewControllerTests.swift */,
+				921F0DB427B4D2EF00943EF1 /* DashboardViewControllerTests.swift */,
+				921F0DB627B4E76300943EF1 /* DashboardCellTests.swift */,
+				921F0DB827B4EA6800943EF1 /* UITextFieldExtensionTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		92F59CAA27B17D57008E06A6 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				92F9045527AEB43C00FEA979 /* AssignmentTagTests.swift */,
+				921F0DAF27B3ED7E00943EF1 /* Controller */,
 			);
 			path = AssignmentTagTests;
 			sourceTree = "<group>";
@@ -510,7 +536,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921F0DAE27B3BE3700943EF1 /* LoginViewControllerTests.swift in Sources */,
+				921F0DB927B4EA6800943EF1 /* UITextFieldExtensionTests.swift in Sources */,
+				921F0DB327B3F77600943EF1 /* TransferViewControllerTests.swift in Sources */,
+				921F0DB527B4D2EF00943EF1 /* DashboardViewControllerTests.swift in Sources */,
 				92F9045627AEB43C00FEA979 /* AssignmentTagTests.swift in Sources */,
+				921F0DB727B4E76300943EF1 /* DashboardCellTests.swift in Sources */,
+				921F0DB127B3EDAE00943EF1 /* RegistrationViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

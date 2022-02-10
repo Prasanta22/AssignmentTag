@@ -9,12 +9,12 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     /// IBOutlet used
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerViewBackgroundView: UIView!
-    @IBOutlet weak var accountBalance: UILabel!
-    @IBOutlet weak var accountNumber: UILabel!
-    @IBOutlet weak var accountHolder: UILabel!
-    @IBOutlet weak var transferButton: UIButton!
+    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var headerViewBackgroundView: UIView?
+    @IBOutlet weak var accountBalance: UILabel?
+    @IBOutlet weak var accountNumber: UILabel?
+    @IBOutlet weak var accountHolder: UILabel?
+    @IBOutlet weak var transferButton: UIButton?
     var transactions: [UserTransaction] = []
     let refreshControl = UIRefreshControl()
 
@@ -40,7 +40,7 @@ class DashboardViewController: UIViewController {
     /// TableView refresh
     func pullToRefresh() {
         refreshControl.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
-        tableView.refreshControl = refreshControl
+        tableView?.refreshControl = refreshControl
     }
     
     @objc func pullRefresh() {
@@ -57,7 +57,7 @@ class DashboardViewController: UIViewController {
     
     /// Button Setup
     func buttonSetup() {
-        transferButton.configure(30, borderColor: .black)
+        transferButton?.configure(30, borderColor: .black)
     }
 
     /// To Setup TableView
@@ -120,9 +120,9 @@ class DashboardViewController: UIViewController {
             DispatchQueue.main.async {
                 if responseModel?.status == StatusReponse.success {
                     DispatchQueue.main.async {
-                        self.accountBalance.text = "\(Constants.currencyType) \((responseModel?.balance ?? 0.0).formattedWithSeparator)"
-                        self.accountNumber.text = responseModel?.accountNo ?? ""
-                        self.accountHolder.text = UserDefaults.standard.string(forKey: Constants.username)
+                        self.accountBalance?.text = "\(Constants.currencyType) \((responseModel?.balance ?? 0.0).formattedWithSeparator)"
+                        self.accountNumber?.text = responseModel?.accountNo ?? ""
+                        self.accountHolder?.text = UserDefaults.standard.string(forKey: Constants.username)
                         self.getTransaction()
                     }
                 } else {
@@ -140,8 +140,8 @@ class DashboardViewController: UIViewController {
             LoadingView.hide()
             self.transactions = responseModel
             DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.transferButton.isHidden = false
+                self.tableView?.reloadData()
+                self.transferButton?.isHidden = false
             }
         }
     }
@@ -233,10 +233,10 @@ extension DashboardViewController: UITableViewDataSource {
                 cell.transactionId = transactionData.data[row].sender?.accountNo
                 cell.amountTextColor = true
             }
-            cell.nameLabel.textColor = .black
+            cell.nameLabel?.textColor = .black
         } else {
             cell.name = transactionData.title
-            cell.nameLabel.textColor = .gray
+            cell.nameLabel?.textColor = .gray
             cell.amount = nil
             cell.transactionId = nil
         }
